@@ -15,5 +15,12 @@ class PlatformFactory:
         if parallel_execution_params is None:
             parallel_execution_params = ParallelExecutionParameters()
         if parallel_execution_params.platform == ParallelExecutionPlatforms.THREADING:
-            return ThreadingParallelExecutionPlatform()
+            # 19.11
+            threads = []
+            numThread = parallel_execution_params.numThreads
+            for i in range(numThread):
+                t = ThreadingParallelExecutionPlatform(i,target = SequentialEvaluationManager)
+                t.start()
+                threads.append(t)
+            return threads
         raise Exception("Unknown parallel execution platform: %s" % (parallel_execution_params.platform,))

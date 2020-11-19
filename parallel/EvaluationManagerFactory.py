@@ -8,6 +8,7 @@ from evaluation.EvaluationMechanismFactory import EvaluationMechanismParameters
 from parallel.ParallelExecutionModes import ParallelExecutionModes
 from parallel.ParallelExecutionParameters import ParallelExecutionParameters
 from parallel.manager.SequentialEvaluationManager import SequentialEvaluationManager
+from parallel.manager.ParallelEvaluationManager import ParallelEvaluationManager
 
 
 class EvaluationManagerFactory:
@@ -22,4 +23,7 @@ class EvaluationManagerFactory:
             parallel_execution_params = ParallelExecutionParameters()
         if parallel_execution_params.execution_mode == ParallelExecutionModes.SEQUENTIAL:
             return SequentialEvaluationManager(patterns, eval_mechanism_params)
+        #19.11
+        if parallel_execution_params.execution_mode == ParallelExecutionModes.DATA_PARALLELISM:
+            return ParallelEvaluationManager(patterns, eval_mechanism_params)
         raise Exception("Unknown parallel execution mode: %s" % (parallel_execution_params.execution_mode,))

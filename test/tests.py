@@ -10,9 +10,12 @@ from test.UnitTests.test_storage import run_storage_tests
 
 runTest.over_all_time = 0
 
-# basic functionality tests
+print("basic functionality tests")
+
 oneArgumentsearchTest()
+
 simplePatternSearchTest()
+""""
 googleAscendPatternSearchTest()
 amazonInstablePatternSearchTest()
 msftDrivRacePatternSearchTest()
@@ -23,7 +26,7 @@ nonsensePatternSearchTest()
 hierarchyPatternSearchTest()
 duplicateEventTypeTest()
 
-# tree plan generation algorithms
+print("tree plan generation algorithms")
 arrivalRatesPatternSearchTest()
 nonFrequencyPatternSearchTest()
 frequencyPatternSearchTest()
@@ -127,3 +130,4 @@ if INCLUDE_TWITTER:
 
 
 print("Finished running all tests, overall time: %s" % runTest.over_all_time)
+"""
