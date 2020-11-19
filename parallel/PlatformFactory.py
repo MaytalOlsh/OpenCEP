@@ -4,7 +4,7 @@ This file contains the class responsible for parallel execution platform initial
 from parallel.ParallelExecutionParameters import ParallelExecutionParameters
 from parallel.ParallelExecutionPlatforms import ParallelExecutionPlatforms
 from parallel.platform.ThreadingParallelExecutionPlatform import ThreadingParallelExecutionPlatform
-
+from parallel.manager.SequentialEvaluationManager import SequentialEvaluationManager
 
 class PlatformFactory:
     """
@@ -19,7 +19,7 @@ class PlatformFactory:
             threads = []
             numThread = parallel_execution_params.numThreads
             for i in range(numThread):
-                t = ThreadingParallelExecutionPlatform(i,target = SequentialEvaluationManager)
+                t = ThreadingParallelExecutionPlatform.create_parallel_execution_unit(i, SequentialEvaluationManager, 2,   )
                 t.start()
                 threads.append(t)
             return threads
