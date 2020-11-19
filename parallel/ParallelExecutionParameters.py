@@ -9,6 +9,9 @@ class ParallelExecutionParameters:
     """
     def __init__(self,
                  execution_mode: ParallelExecutionModes = DefaultConfig.DEFAULT_PARALLEL_EXECUTION_MODE,
-                 platform: ParallelExecutionPlatforms = DefaultConfig.DEFAULT_PARALLEL_EXECUTION_PLATFORM):
+                 platform: ParallelExecutionPlatforms = DefaultConfig.DEFAULT_PARALLEL_EXECUTION_PLATFORM,
+                 numThreads = 1):
         self.execution_mode = execution_mode
         self.platform = platform
+        #19.11
+        self.numThreads=numThreads
