@@ -23,7 +23,7 @@ class PlatformFactory:
                 "eval_mechanism_params": eval_mechanism_params
             }
             for i in range(numThread):
-                t = ThreadingParallelExecutionPlatform.create_parallel_execution_unit(unit_id=i,callback_function= SequentialEvaluationManager,kwargs= *k_dict  )
+                t = ThreadingParallelExecutionPlatform.create_parallel_execution_unit(unit_id=i,callback_function= SequentialEvaluationManager,kwargs= k_dict  )
                 t.start()
                 threads.append(t)
             return threads
