@@ -11,6 +11,6 @@ class ParallelEvaluationManager(EvaluationManager, ABC):
     """
     def __init__(self, patterns: Pattern or List[Pattern], eval_mechanism_params: EvaluationMechanismParameters,
                  parallel_execution_params: ParallelExecutionParameters):
-        self._platform = PlatformFactory.create_parallel_execution_platform(parallel_execution_params)
+        self._platform = PlatformFactory.create_parallel_execution_platform(patterns, eval_mechanism_params, parallel_execution_params)
 
 

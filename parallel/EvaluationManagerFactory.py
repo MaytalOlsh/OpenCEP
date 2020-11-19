@@ -25,5 +25,5 @@ class EvaluationManagerFactory:
             return SequentialEvaluationManager(patterns, eval_mechanism_params)
         #19.11
         if parallel_execution_params.execution_mode == ParallelExecutionModes.DATA_PARALLELISM:
-            return ParallelEvaluationManager(patterns, eval_mechanism_params)
+            return ParallelEvaluationManager(patterns, eval_mechanism_params, parallel_execution_params)
         raise Exception("Unknown parallel execution mode: %s" % (parallel_execution_params.execution_mode,))
